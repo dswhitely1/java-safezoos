@@ -4,11 +4,16 @@ import com.lambdaschool.zoos.model.Animal;
 import com.lambdaschool.zoos.repository.AnimalRepository;
 import com.lambdaschool.zoos.view.AnimalZooCount;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.AuditorAware;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service(value = "animalService")
 public class AnimalServiceImpl implements AnimalService
@@ -41,4 +46,6 @@ public class AnimalServiceImpl implements AnimalService
     {
         return animalrepos.animalCounts();
     }
+
+
 }

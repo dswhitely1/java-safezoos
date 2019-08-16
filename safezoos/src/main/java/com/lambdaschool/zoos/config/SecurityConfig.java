@@ -21,7 +21,8 @@ import javax.annotation.Resource;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter
 {
-    @Resource(name="userService")
+
+    @Resource(name = "userService")
     private UserDetailsService userDetailsService;
 
     @Override
@@ -34,7 +35,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
     @Autowired
     public void globalUserDetails(AuthenticationManagerBuilder auth) throws Exception
     {
-        auth.userDetailsService(userDetailsService).passwordEncoder(encoder());
+        auth.userDetailsService(userDetailsService)
+                .passwordEncoder(encoder());
     }
 
     @Bean
